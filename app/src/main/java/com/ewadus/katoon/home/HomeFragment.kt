@@ -15,19 +15,35 @@ import com.ewadus.katoon.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
 
-    private val viewModel : HomeViewModel by  lazy {
+    private val viewModel: HomeViewModel by lazy {
         ViewModelProvider(this).get(HomeViewModel::class.java)
     }
 
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
 
 
-        val binding = DataBindingUtil.inflate<FragmentHomeBinding>(inflater,R.layout.fragment_home,container,false)
+        val binding = DataBindingUtil.inflate<FragmentHomeBinding>(
+            inflater,
+            R.layout.fragment_home,
+            container,
+            false
+        )
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
         binding.vdoGrid.adapter = VdoGridAdapter()
+
+       binding.pullRefresh.setOnRefreshListener {
+           viewModel.pull2Refresh()
+           binding.pullRefresh.isRefreshing = false
+
+       }
+
+
+
         return binding.root
     }
 

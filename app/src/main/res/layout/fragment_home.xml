@@ -9,18 +9,11 @@
         <variable
             name="viewModel"
             type="com.ewadus.katoon.home.HomeViewModel" />
-        <variable
-            name="videoNetwork"
-            type="com.ewadus.katoon.network.VideoResponse" />
-
     </data>
-
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-
 <!--        <TextView-->
 <!--            android:layout_width="wrap_content"-->
 <!--            android:layout_height="wrap_content"-->
@@ -41,6 +34,24 @@
 <!--            app:layout_constraintStart_toStartOf="parent"-->
 <!--            app:layout_constraintTop_toTopOf="parent"-->
 <!--            app:thumbnail_url="@{viewModel.responseImg.thumbnail}" />-->
+
+        <ImageView
+            android:id="@+id/status_img"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:vdoStatus ="@{viewModel.status}"/>
+
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/pull_refresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/vdo_grid"
             android:layout_width="0dp"
@@ -52,10 +63,14 @@
             app:layout_constraintTop_toTopOf="parent"
             app:spanCount="2"
             tools:listitem="@layout/list_item_gridview"
-            app:listData="@{viewModel.responseImgs}"
-            />
+            app:listData="@{viewModel.responseImgs}" />
+
+
+
+
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </layout>

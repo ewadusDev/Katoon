@@ -7,9 +7,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ewadus.katoon.databinding.ListItemGridviewBinding
 import com.ewadus.katoon.network.VideoModel
 
-class VdoGridAdapter: androidx.recyclerview.widget.ListAdapter<VideoModel,VdoGridAdapter.VDOPropertyViewHolder>(DiffCallback) {
 
-    class VDOPropertyViewHolder(private var binding: ListItemGridviewBinding): RecyclerView.ViewHolder(binding.root) {
+
+class VdoGridAdapter : androidx.recyclerview.widget.ListAdapter<VideoModel, VdoGridAdapter.
+VDOPropertyViewHolder>(DiffCallback) {
+
+    class VDOPropertyViewHolder(private var binding: ListItemGridviewBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(vdoProperty: VideoModel) {
             binding.vdoNetwork = vdoProperty
             binding.executePendingBindings()
@@ -28,9 +32,9 @@ class VdoGridAdapter: androidx.recyclerview.widget.ListAdapter<VideoModel,VdoGri
         holder.bind(vdosProperty)
     }
 
-    companion object DiffCallback: DiffUtil.ItemCallback<VideoModel>() {
+    companion object DiffCallback : DiffUtil.ItemCallback<VideoModel>() {
         override fun areItemsTheSame(oldItem: VideoModel, newItem: VideoModel): Boolean {
-            return  oldItem === newItem
+            return oldItem === newItem
         }
 
         override fun areContentsTheSame(oldItem: VideoModel, newItem: VideoModel): Boolean {

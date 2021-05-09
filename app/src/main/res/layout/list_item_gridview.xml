@@ -8,21 +8,55 @@
         <variable
             name="vdoNetwork"
             type="com.ewadus.katoon.network.VideoModel" />
-        <variable
-            name="HomeViewModel"
-            type="com.ewadus.katoon.home.HomeViewModel" />
+
     </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        >
 
 
     <ImageView
+        android:id="@+id/thumbnail_vdo"
         android:layout_width="match_parent"
-        android:layout_height="170dp"
+        android:layout_height="240dp"
         android:adjustViewBounds="true"
-        android:padding="3dp"
         android:scaleType="centerCrop"
         app:thumbnail_url="@{vdoNetwork.thumbnail}"
         tools:src="@tools:sample/backgrounds/scenic"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/title_vdo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/thumbnail_vdo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@{vdoNetwork.title}"
+        tools:text="Title Name"/>
+
+        <TextView
+            android:id="@+id/description_vdo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:maxLines="2"
+            app:layout_constraintTop_toBottomOf="@+id/title_vdo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@{vdoNetwork.description}"
+            tools:text="Title Name"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 
 
