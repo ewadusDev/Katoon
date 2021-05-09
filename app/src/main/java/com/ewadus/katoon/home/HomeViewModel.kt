@@ -25,10 +25,10 @@ class HomeViewModel : ViewModel() {
     val responseImg: LiveData<VideoModel>
         get() = _responseImg
 
-//    //     สำหรับ get response หลายๆอัน
-//    private val _responseImgs = MutableLiveData<VideoResponse>()
-//    val responseImgs: LiveData<VideoResponse>
-//    get() = _responseImgs
+    //     สำหรับ get response หลายๆอัน
+    private val _responseImgs = MutableLiveData<List<VideoModel>>()
+    val responseImgs: LiveData<List<VideoModel>>
+    get() = _responseImgs
 
 
     init {
@@ -38,10 +38,8 @@ class HomeViewModel : ViewModel() {
     private fun getVideoProperty() {
         viewModelScope.launch {
             try {
-                val listResult = DevByteNetwork.videoServices.getPlaylist()
-                Log.i("response","${listResult.body()?.videos?.get(1)?.thumbnail.toString()}")
-                _responseText.value = listResult.body()?.videos?.get(1)?.thumbnail
-
+                _responseImgs.value = DevByteNetwork.videoServices.getPlaylist().videos
+                Log.i("response","${DevByteNetwork.videoServices.getPlaylist().videos.size}")
 
 
 

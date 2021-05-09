@@ -11,7 +11,7 @@ import retrofit2.http.GET
 
 interface DevbyteService {
     @GET("devbytes")
-    suspend fun getPlaylist(): Response<VideoResponse>
+    suspend fun getPlaylist(): VideoResponse
 }
 
 

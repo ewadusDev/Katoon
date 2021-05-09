@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.ewadus.katoon.R
+import com.ewadus.katoon.VdoGridAdapter
 import com.ewadus.katoon.databinding.FragmentHomeBinding
 
 
@@ -26,6 +27,7 @@ class HomeFragment : Fragment() {
         val binding = DataBindingUtil.inflate<FragmentHomeBinding>(inflater,R.layout.fragment_home,container,false)
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
+        binding.vdoGrid.adapter = VdoGridAdapter()
         return binding.root
     }
 
