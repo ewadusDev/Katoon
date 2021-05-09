@@ -14,26 +14,6 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-<!--        <TextView-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="@{viewModel.responseText}"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"/>-->
-
-<!--        <ImageView-->
-<!--            android:id="@+id/videos_thumbnail"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="170dp"-->
-<!--            android:adjustViewBounds="true"-->
-<!--            android:padding="5dp"-->
-<!--            android:scaleType="centerCrop"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent"-->
-<!--            app:thumbnail_url="@{viewModel.responseImg.thumbnail}" />-->
 
         <ImageView
             android:id="@+id/status_img"
@@ -65,12 +45,7 @@
             tools:listitem="@layout/list_item_gridview"
             app:listData="@{viewModel.responseImgs}" />
 
-
-
-
-
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

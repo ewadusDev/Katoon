@@ -21,6 +21,7 @@ class DetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+        val application = requireNotNull(activity).application
         val binding = DataBindingUtil.inflate<FragmentDetailBinding>(
             inflater,
             R.layout.fragment_detail,
@@ -28,6 +29,13 @@ class DetailFragment : Fragment() {
             false
         )
         binding.lifecycleOwner = this
+
+        val videoModel = DetailFragmentArgs.fromBundle(requireArguments()).selectedVideo
+        val viewModelFactory = DetailViewModelFactory(videoModel, application)
+
+        binding.detailViewModel =
+            ViewModelProvider(this, viewModelFactory).get(DetailViewModel::class.java)
+
         return binding.root
     }
 

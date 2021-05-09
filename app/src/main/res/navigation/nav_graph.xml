@@ -18,5 +18,10 @@
         android:id="@+id/detailFragment"
         android:name="com.ewadus.katoon.detail.DetailFragment"
         android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail" />
+        tools:layout="@layout/fragment_detail">
+        <argument
+            android:name="selectedVideo"
+            app:argType="com.ewadus.katoon.network.VideoModel"/>
+
+    </fragment>
 </navigation>

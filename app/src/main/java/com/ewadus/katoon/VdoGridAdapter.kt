@@ -9,7 +9,7 @@ import com.ewadus.katoon.network.VideoModel
 
 
 
-class VdoGridAdapter : androidx.recyclerview.widget.ListAdapter<VideoModel, VdoGridAdapter.
+class VdoGridAdapter (private val onClickListener: OnClickListener) : androidx.recyclerview.widget.ListAdapter<VideoModel, VdoGridAdapter.
 VDOPropertyViewHolder>(DiffCallback) {
 
     class VDOPropertyViewHolder(private var binding: ListItemGridviewBinding) :
@@ -29,6 +29,10 @@ VDOPropertyViewHolder>(DiffCallback) {
 
     override fun onBindViewHolder(holder: VdoGridAdapter.VDOPropertyViewHolder, position: Int) {
         val vdosProperty = getItem(position)
+        holder.itemView.setOnClickListener {
+            onClickListener.clickListener(vdosProperty)
+        }
+
         holder.bind(vdosProperty)
     }
 
@@ -40,6 +44,10 @@ VDOPropertyViewHolder>(DiffCallback) {
         override fun areContentsTheSame(oldItem: VideoModel, newItem: VideoModel): Boolean {
             return oldItem.url == newItem.url
         }
+    }
+
+    class OnClickListener (val clickListener: (videosModel:VideoModel) -> Unit) {
+        fun onClick(videosModel: VideoModel) = clickListener(videosModel)
     }
 
 

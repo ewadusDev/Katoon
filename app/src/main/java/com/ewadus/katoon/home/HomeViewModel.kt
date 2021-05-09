@@ -40,6 +40,10 @@ class HomeViewModel : ViewModel() {
 
     var refreshData: Boolean = false
 
+     private val _navigateToSelectedVideo = MutableLiveData<VideoModel>()
+    val navigateToSelectedVideo: LiveData<VideoModel>
+    get() = _navigateToSelectedVideo
+
 
     init {
         getVideoProperty()
@@ -68,9 +72,15 @@ class HomeViewModel : ViewModel() {
                 _status.value = VDOAPIStatus.ERROR
                 refreshData = false
             }
-
-
         }
+    }
+
+    fun displayVideoDetail(videosModel: VideoModel ) {
+        _navigateToSelectedVideo.value = videosModel
+    }
+
+    fun displayVideoDetailComplete( ) {
+        _navigateToSelectedVideo.value = null
     }
 
 }
