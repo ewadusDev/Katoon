@@ -1,5 +1,7 @@
 package com.ewadus.katoon.detail
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -36,8 +38,21 @@ class DetailFragment : Fragment() {
         binding.detailViewModel =
             ViewModelProvider(this, viewModelFactory).get(DetailViewModel::class.java)
 
+//        binding.youtubeBtn.setOnClickListener {
+//            val videoId = videoModel.url
+//            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(videoId))
+//            startActivity(intent)
+//
+//        }
+        binding.thumbnailVideo.setOnClickListener {
+            val videoId = videoModel.url
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(videoId))
+            startActivity(intent)
+        }
+
         return binding.root
     }
+
 
 
 }

@@ -55,7 +55,6 @@ class HomeViewModel : ViewModel() {
         getVideoProperty()
     }
 
-
     private fun getVideoProperty() {
         viewModelScope.launch {
             _status.value = VDOAPIStatus.LOADING
